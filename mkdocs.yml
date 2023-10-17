@@ -1,0 +1,63 @@
+site_name: Material Didático - GAC116
+
+site_url: https://pgstzetta.ufla.br/
+site_description: Material Didático - GAC116 - Programação Web.
+site_author: Prof. Jesimar Arantes
+
+repo_name: ufla-prog-web
+repo_url: https://github.com/ufla-prog-web
+
+nav:
+  - Início: index.md
+  - Aula Django 01: aula-django-01.md
+  - Aula Django 02: aula-django-02.md
+  - Aula Django 03: aula-django-03.md
+
+markdown_extensions:
+  - pymdownx.highlight:         # estas extensões são importantes para colorir as tags dos códigos json, python, etc.
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:            # habilita informações em abas 
+      alternate_style: true 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
+  - pymdownx.emoji:            # habilita a utilização de icones no pagina gerada
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+copyright: Copyright &copy; 2023 - GAC116 - Programação Web - UFLA.
+
+plugins:
+  - search          # inclui a parte de busca na pagina
+  - autorefs        # inclui suporte a autoreferência nas páginas markdown
+  - mkdocstrings    # inclui a documentação docstring no projeto mkdocs
+
+#theme: readthedocs  #usa o tema readthedocs
+#theme: material      #usa o tema material
+
+theme:
+  name: material
+  language: pt-BR
+  palette: 
+    # Paleta quando esta no modo light
+    - scheme: default
+      primary: blue       # cor dos menus principais
+      accent: dark blue   # cor dos links 
+      toggle:
+        icon: material/brightness-7
+        name: Trocar para modo escuro
+    # Paleta quando esta no modo dark
+    - scheme: slate 
+      primary: blue
+      accent: blue grey
+      toggle:
+        icon: material/brightness-4 
+        name: Trocar para modo claro
+  favicon: img/favicon.ico
+  features:
+    - content.tabs.link
