@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+# Bem vindo a Página de Programação Web
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Página da Disciplina - GAC116 - Programação Web ofertada na UFLA.
 
-## Commands
+A seguir tem-se a documentação de algumas aulas da disciplina.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* [Aula Django 01](aula-django-01.md)
+* [Aula Django 02](aula-django-02.md)
+* [Aula Django 03](aula-django-03.md)

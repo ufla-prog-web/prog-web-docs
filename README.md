@@ -31,3 +31,17 @@ Executando a aplicação web:
 ```bash
 (venv) ... $ mkdocs serve
 ```
+
+## Comandos
+
+* `mkdocs new [dir-name]` - Cria um novo projeto.
+* `mkdocs serve` - Inicia um servidor da documentação com reloading.
+* `mkdocs build` - Constroi a documentação do site.
+* `mkdocs -h` - Imprime uma mensagem de ajuda e sai.
+
+## Layout do Projeto
+
+    mkdocs.yml    # Arquivo de configuração.
+    docs/
+        index.md  # Página inicial da documentação.
+        ...       # Outras páginas markdown, imagens e outros arquivos.

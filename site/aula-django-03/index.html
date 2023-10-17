@@ -1,0 +1,1778 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Material Didático - GAC116 - Programação Web.">
+      
+      
+        <meta name="author" content="Prof. Jesimar Arantes">
+      
+      
+        <link rel="canonical" href="https://pgstzetta.ufla.br/aula-django-03/">
+      
+      
+        <link rel="prev" href="../aula-django-02/">
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Aula Django 03 - Material Didático - GAC116</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="dark-blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aula-djando-03-sistema-para-portal-biblioteca" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Material Didático - GAC116" class="md-header__button md-logo" aria-label="Material Didático - GAC116" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Didático - GAC116
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aula Django 03
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="dark-blue"  aria-label="Trocar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Trocar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue-grey"  aria-label="Trocar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Trocar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ufla-prog-web" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ufla-prog-web
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Material Didático - GAC116" class="md-nav__button md-logo" aria-label="Material Didático - GAC116" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Material Didático - GAC116
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ufla-prog-web" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ufla-prog-web
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aula-django-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula Django 01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aula-django-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula Django 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aula Django 03
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aula Django 03
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linguagens-utilizadas" class="md-nav__link">
+    Linguagens Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-utilizados" class="md-nav__link">
+    Framework Utilizados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-utilizadas" class="md-nav__link">
+    Ferramentas Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-web" class="md-nav__link">
+    Arquitetura Web
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura Web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-geral-das-aplicacao-web" class="md-nav__link">
+    Arquitetura Geral das Aplicação Web
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-django" class="md-nav__link">
+    Arquitetura Django
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura Django">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-mvt-geral" class="md-nav__link">
+    Arquitetura MVT - Geral
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-mvt-requisicao" class="md-nav__link">
+    Arquitetura MVT - Requisição
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-mvt-detalhes" class="md-nav__link">
+    Arquitetura MVT - Detalhes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-da-aula" class="md-nav__link">
+    Objetivo da Aula
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-utilizados-na-criacao-deste-projeto" class="md-nav__link">
+    Comandos utilizados na criação deste projeto
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos utilizados na criação deste projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clonando-o-repositorio" class="md-nav__link">
+    Clonando o Repositório
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baixando-o-repositorio" class="md-nav__link">
+    Baixando o Repositório
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-virtualenv" class="md-nav__link">
+    Instalação do VirtualEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abrindo-o-visual-studio-code" class="md-nav__link">
+    Abrindo o Visual Studio Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-ambiente-virtual" class="md-nav__link">
+    Criação do Ambiente Virtual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-django" class="md-nav__link">
+    Instalação do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executando-o-projeto" class="md-nav__link">
+    Executando o Projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-nosso-primeiro-modelo" class="md-nav__link">
+    Criando nosso Primeiro Modelo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambiente-administrativo-do-django" class="md-nav__link">
+    Ambiente Administrativo do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-usuario-no-django" class="md-nav__link">
+    Criando um Usuário no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-novos-livros" class="md-nav__link">
+    Adicionando novos Livros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carregando-a-interface-livro-com-dados-do-bd" class="md-nav__link">
+    Carregando a Interface Livro com Dados do BD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-do-projeto-django-em-portugues" class="md-nav__link">
+    Configuração do Projeto Django em Português
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carregando-a-interface-tcc-com-dados-do-bd" class="md-nav__link">
+    Carregando a Interface TCC com Dados do BD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-controle-de-usuarios-no-django" class="md-nav__link">
+    Adicionando Controle de Usuários no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melhorando-a-tela-de-cadastro" class="md-nav__link">
+    Melhorando a Tela de Cadastro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melhorando-a-tela-de-login" class="md-nav__link">
+    Melhorando a Tela de Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-disponivel-apenas-para-usuarios-logados" class="md-nav__link">
+    Dashboard Disponível Apenas para Usuários Logados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-botao-de-logout-no-sistema" class="md-nav__link">
+    Adicionando Botão de Logout no Sistema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-bootstrap-no-sistema" class="md-nav__link">
+    Adicionando Bootstrap no Sistema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-no-dashboard-informacao-do-usuario-logado" class="md-nav__link">
+    Adicionando no Dashboard Informação do Usuário Logado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algumas-informacoes-adicionais" class="md-nav__link">
+    Algumas Informações Adicionais
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linguagens-utilizadas" class="md-nav__link">
+    Linguagens Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-utilizados" class="md-nav__link">
+    Framework Utilizados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-utilizadas" class="md-nav__link">
+    Ferramentas Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-web" class="md-nav__link">
+    Arquitetura Web
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura Web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-geral-das-aplicacao-web" class="md-nav__link">
+    Arquitetura Geral das Aplicação Web
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-django" class="md-nav__link">
+    Arquitetura Django
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura Django">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-mvt-geral" class="md-nav__link">
+    Arquitetura MVT - Geral
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-mvt-requisicao" class="md-nav__link">
+    Arquitetura MVT - Requisição
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-mvt-detalhes" class="md-nav__link">
+    Arquitetura MVT - Detalhes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-da-aula" class="md-nav__link">
+    Objetivo da Aula
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-utilizados-na-criacao-deste-projeto" class="md-nav__link">
+    Comandos utilizados na criação deste projeto
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos utilizados na criação deste projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clonando-o-repositorio" class="md-nav__link">
+    Clonando o Repositório
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baixando-o-repositorio" class="md-nav__link">
+    Baixando o Repositório
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-virtualenv" class="md-nav__link">
+    Instalação do VirtualEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abrindo-o-visual-studio-code" class="md-nav__link">
+    Abrindo o Visual Studio Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-ambiente-virtual" class="md-nav__link">
+    Criação do Ambiente Virtual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-django" class="md-nav__link">
+    Instalação do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executando-o-projeto" class="md-nav__link">
+    Executando o Projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-nosso-primeiro-modelo" class="md-nav__link">
+    Criando nosso Primeiro Modelo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambiente-administrativo-do-django" class="md-nav__link">
+    Ambiente Administrativo do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-usuario-no-django" class="md-nav__link">
+    Criando um Usuário no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-novos-livros" class="md-nav__link">
+    Adicionando novos Livros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carregando-a-interface-livro-com-dados-do-bd" class="md-nav__link">
+    Carregando a Interface Livro com Dados do BD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-do-projeto-django-em-portugues" class="md-nav__link">
+    Configuração do Projeto Django em Português
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carregando-a-interface-tcc-com-dados-do-bd" class="md-nav__link">
+    Carregando a Interface TCC com Dados do BD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-controle-de-usuarios-no-django" class="md-nav__link">
+    Adicionando Controle de Usuários no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melhorando-a-tela-de-cadastro" class="md-nav__link">
+    Melhorando a Tela de Cadastro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melhorando-a-tela-de-login" class="md-nav__link">
+    Melhorando a Tela de Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-disponivel-apenas-para-usuarios-logados" class="md-nav__link">
+    Dashboard Disponível Apenas para Usuários Logados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-botao-de-logout-no-sistema" class="md-nav__link">
+    Adicionando Botão de Logout no Sistema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-bootstrap-no-sistema" class="md-nav__link">
+    Adicionando Bootstrap no Sistema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-no-dashboard-informacao-do-usuario-logado" class="md-nav__link">
+    Adicionando no Dashboard Informação do Usuário Logado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algumas-informacoes-adicionais" class="md-nav__link">
+    Algumas Informações Adicionais
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="aula-djando-03-sistema-para-portal-biblioteca">Aula Djando 03 - Sistema para Portal Biblioteca</h1>
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/Aula-Biblioteca-brightgreen.svg" alt="Aula-Biblioteca">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Python-blue.svg" alt="Python">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Django-orange.svg" alt="Django">
+  </a>
+</p>
+
+<p>Aula Djando 03. Projeto utilizando o Django para ser desenvolvido na Aula de GAC116 - Programação Web.</p>
+<p>O objetivo desse projeto é criar um sistema para gestão de biblioteca.</p>
+<p>Este tutorial foi elaborado baseado no tutorial disponível no <a href="https://www.w3schools.com/django/index.php">curso de django da w3schools</a> e também baseado na <a href="https://docs.djangoproject.com/en/4.2/">documentação oficial do django</a>.</p>
+<h2 id="linguagens-utilizadas">Linguagens Utilizadas</h2>
+<ul>
+<li>Python - <a href="https://www.python.org/">link</a></li>
+<li>JavaScript - <a href="https://www.javascript.com/">link</a></li>
+<li>HTML - <a href="https://html.com/">link</a></li>
+<li>CSS - <a href="https://www.w3schools.com/css/">link</a></li>
+</ul>
+<h2 id="framework-utilizados">Framework Utilizados</h2>
+<ul>
+<li>Django - <a href="https://www.djangoproject.com/">link</a></li>
+<li>Bootstrap - <a href="https://getbootstrap.com/">link</a></li>
+<li>Chart.js - <a href="https://www.chartjs.org/">link</a></li>
+</ul>
+<h2 id="ferramentas-utilizadas">Ferramentas Utilizadas</h2>
+<ul>
+<li>Pip - <a href="https://pypi.org/project/pip/">link</a></li>
+<li>VirtualEnv - <a href="https://virtualenv.pypa.io/">link</a></li>
+<li>Visual Studio Code - <a href="https://code.visualstudio.com/">link</a></li>
+<li>SQLite Online - <a href="https://sqliteonline.com/">link</a></li>
+<li>DB Browser for SQLite - <a href="https://sqlitebrowser.org/">link</a></li>
+</ul>
+<h2 id="arquitetura-web">Arquitetura Web</h2>
+<h3 id="arquitetura-geral-das-aplicacao-web">Arquitetura Geral das Aplicação Web</h3>
+<p><img alt="Arquitetura das Aplicações Web" src="../img/arquitetura-web.png" /></p>
+<p>Fonte: <a href="https://blog.grancursosonline.com.br/arquitetura-em-tres-camadas-para-aplicacoes-web/">https://blog.grancursosonline.com.br/arquitetura-em-tres-camadas-para-aplicacoes-web/</a></p>
+<h2 id="arquitetura-django">Arquitetura Django</h2>
+<h3 id="arquitetura-mvt-geral">Arquitetura MVT - Geral</h3>
+<p><img alt="Arquitetura MVT - Geral" src="../img/mvt-1.png" /></p>
+<h3 id="arquitetura-mvt-requisicao">Arquitetura MVT - Requisição</h3>
+<p><img alt="Arquitetura MVT - Requisição" src="../img/mvt-2.png" /></p>
+<h3 id="arquitetura-mvt-detalhes">Arquitetura MVT - Detalhes</h3>
+<p><img alt="Arquitetura MVT - Detalhes" src="../img/mvt-3.png" /></p>
+<h2 id="objetivo-da-aula">Objetivo da Aula</h2>
+<p>A animação abaixo mostra de forma visual o resultado esperado nesta aula.</p>
+<p><img alt="Sistema Objetivo da Aula" src="../img/objetivo3.gif" /></p>
+<h2 id="comandos-utilizados-na-criacao-deste-projeto">Comandos utilizados na criação deste projeto</h2>
+<h3 id="clonando-o-repositorio">Clonando o Repositório</h3>
+<p>Inicialmente, clone o repositório da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ufla-prog-web/aula-django-03.git
+</code></pre></div>
+<h3 id="baixando-o-repositorio">Baixando o Repositório</h3>
+<p>Caso deseje ao invês de clonar o repositório (método acima), baixe o repositório do <a href="https://github.com/ufla-prog-web/aula-django-03">link</a> clicando em <code>Code</code> e <code>Download ZIP</code>.</p>
+<h3 id="instalacao-do-virtualenv">Instalação do VirtualEnv</h3>
+<p>Se necessário, instale o virtualenv (testado na versão 20.24.1):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>virtualenv
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
+</code></pre></div>
+<p>Verifique a versão instalada do virtualenv (para ter certeza que tudo ocorreu bem):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>virtualenv<span class="w"> </span>--version
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>virtualenv<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="abrindo-o-visual-studio-code">Abrindo o Visual Studio Code</h3>
+<p>Abra a IDE Visual Studio Code na pasta aula-django-03.</p>
+<p><strong>Dica:</strong> Abra o arquivo <code>README.md</code> e clique em <code>Open Preview to the Side</code> para facilitar a construção da aplicação.</p>
+<p><strong>Dica:</strong> Abra um terminal utilizando a IDE clicando em <code>Terminal</code> e <code>New Terminal</code>. Navegue até a pasta <code>portal_biblioteca</code>.</p>
+<h3 id="criacao-do-ambiente-virtual">Criação do Ambiente Virtual</h3>
+<p>Navegue até a pasta <code>aula-djando-03/portal_biblioteca</code>.</p>
+<p>Crie o ambiente virtual para isolar as instalações Python:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>virtualenv<span class="w"> </span>venv
+</code></pre></div>
+<p>Ativei o ambiente virtual para fazer as instalações de forma isolada:</p>
+<p><strong>Sistema Operacional:</strong> Unix/Mac OS:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div>
+<p><strong>Sistema Operacional:</strong> Windows</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
+</code></pre></div>
+<p>Quando desejar sair do ambiente virtual, basta digitar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>deactivate
+</code></pre></div>
+<h3 id="instalacao-do-django">Instalação do Django</h3>
+<p>Instale o django dentro do ambiente virtual criado (testado na versão 4.2.5):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>django
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>Django
+</code></pre></div>
+<p>Verifique a versão instalada do django (para ter certeza que tudo ocorreu bem):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>django-admin<span class="w"> </span>--version
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>django<span class="w"> </span>--version
+</code></pre></div>
+<p><strong>OBS:</strong> Caso o terminal não encontre o django-admin, execute o seguinte comando abaixo (utilizado geralmente quando não se utiliza o VirtualEnv no laboratório DCC07):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/.local/bin
+</code></pre></div>
+<h3 id="executando-o-projeto">Executando o Projeto</h3>
+<p>Antes de executar o projeto, execute o comando para fazer as migrações:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<p>Em seguida, execute comando abaixo para fazer a cópia dos arquivos estáticos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</code></pre></div>
+<p>Inicie a execução do projeto django criado:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p><strong>OBS:</strong> Por padrão, o servidor de desenvolvimento escuta na porta 8000, mas você pode especificar uma porta diferente como argumento opcional, por exemplo, <code>python3 manage.py runserver 8081</code>.</p>
+<p>Acesse através do navegdor web a página <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>.</p>
+<p>A aula anterior avançou até aqui.</p>
+<h3 id="criando-nosso-primeiro-modelo">Criando nosso Primeiro Modelo</h3>
+<p>Até esse momento fizemos a nossa aplicação web com interface, com URLs e algum processamento, mas não trabalhamos com Banco de Dados. Os dados estavam inseridos diretamente no código.</p>
+<p>Iremos agora criar o nosso modelo para representar Livros e TCCs no Banco de Dados SQLite disponível no Django. No Django, os dados são criados em objetos, chamados Modelos, e na verdade são tabelas em um banco de dados.</p>
+<p>Primeiramente, iremos criar uma classe chamada <code>Livro</code>. Para isso abra o arquivo <code>models.py</code> na pasta <code>biblioteca</code> e digite o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">class</span> <span class="nc">Livro</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="n">ano</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+</code></pre></div>
+<p>O código acima irá criar uma Tabela chamada Livro no BD SQLite. Os campos <code>nome</code> e <code>autor</code> são campos de texto e estão configurados para ter no máximo 255 caracteres. O campo <code>ano</code> é um campo numérico inteiro.</p>
+<p>OBS: Quando criamos o projeto Django, obtivemos um banco de dados SQLite vazio. Ele estava na raiz da pasta portal_biblioteca e possui o nome de arquivo db.sqlite3. Por padrão, todos os modelos criados no projeto Django serão criados como tabelas neste banco de dados.</p>
+<p>Em seguida, execute o código abaixo para que seja criado a tabela Livro no banco de dados de fato:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>makemigrations<span class="w"> </span>biblioteca
+</code></pre></div>
+<p><strong>OBS:</strong> Após definir os modelos, você cria migrações com este comando. Isso cria arquivos de migração que descrevem como o banco de dados deve ser modificado para refletir as alterações nos modelos.</p>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Migrations<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;biblioteca&#39;</span>:
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span>biblioteca/migrations/0001_initial.py
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>model<span class="w"> </span>Livro
+</code></pre></div>
+<p>O Django cria um arquivo descrevendo as alterações e armazena o arquivo na pasta <code>/biblioteca/migrations/</code> com nome <code>0001_initial.py</code>. Abra esse arquivo para analisar o conteúdo. Observe que o Django insere um campo <code>id</code> para suas tabelas, que é um número auto incrementado.</p>
+<p>A tabela ainda não foi criada, você terá que executar mais um comando, então o Django criará e executará uma instrução SQL, baseada no conteúdo do novo arquivo da pasta <code>/biblioteca/migrations/</code>.</p>
+<p>Execute o comando de migração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<p><strong>OBS:</strong> Este comando aplica as migrações, ou seja, atualiza o esquema do banco de dados de acordo com as mudanças nos modelos.</p>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Operations<span class="w"> </span>to<span class="w"> </span>perform:
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span>Apply<span class="w"> </span>all<span class="w"> </span>migrations:<span class="w"> </span>admin,<span class="w"> </span>auth,<span class="w"> </span>biblioteca,<span class="w"> </span>contenttypes,<span class="w"> </span>sessions
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Running<span class="w"> </span>migrations:
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span>Applying<span class="w"> </span>biblioteca.0001_initial...<span class="w"> </span>OK
+</code></pre></div>
+<p>Usaremos o interpretador Python (Python Shell) para adicionar alguns livros a tabela criada no BD. Para abrir um shell Python, digite este comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>shell
+</code></pre></div>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Python<span class="w"> </span><span class="m">3</span>.10.12<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Jun<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">2023</span>,<span class="w"> </span><span class="m">05</span>:26:28<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">11</span>.4.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="o">(</span>InteractiveConsole<span class="o">)</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>&gt;&gt;&gt;
+</code></pre></div>
+<p>Na parte inferior, após os três, <code>&gt;&gt;&gt;</code> escreva o seguinte:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>biblioteca.models<span class="w"> </span>import<span class="w"> </span>Livro
+</code></pre></div>
+<p>Pressione [enter] e escreva o código abaixo para ver a tabela Livro vazia:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>&gt;&gt;&gt;<span class="w"> </span>Livro.objects.all<span class="o">()</span>
+</code></pre></div>
+<p>Isso deve fornecer um objeto QuerySet vazio, como este:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>&lt;QuerySet<span class="w"> </span><span class="o">[]</span>&gt;
+</code></pre></div>
+<p>Um QuerySet é uma coleção de dados de um banco de dados.</p>
+<p>Adicione um registro à tabela, executando estas duas linhas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">livro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Livro<span class="o">(</span><span class="nv">nome</span><span class="o">=</span><span class="s1">&#39;O Senhor dos Anéis&#39;</span>,<span class="w"> </span><span class="nv">autor</span><span class="o">=</span><span class="s1">&#39;J.R.R. Tolkien&#39;</span>,<span class="w"> </span><span class="nv">ano</span><span class="o">=</span><span class="m">1954</span><span class="o">)</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>&gt;&gt;&gt;<span class="w"> </span>livro.save<span class="o">()</span>
+</code></pre></div>
+<p>Execute este comando para ver se a tabela Livro possui um membro:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Livro.objects.all<span class="o">()</span>.values<span class="o">()</span>
+</code></pre></div>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>&lt;QuerySet<span class="w"> </span><span class="o">[{</span><span class="s1">&#39;id&#39;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;nome&#39;</span>:<span class="w"> </span><span class="s1">&#39;O Senhor dos Anéis&#39;</span>,<span class="w"> </span><span class="s1">&#39;autor&#39;</span>:<span class="w"> </span><span class="s1">&#39;J.R.R. Tolkien&#39;</span>,<span class="w"> </span><span class="s1">&#39;ano&#39;</span>:<span class="w"> </span><span class="m">1954</span><span class="o">}]</span>&gt;
+</code></pre></div>
+<p>Para sair do ambiente shell digite:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>quit<span class="o">()</span>
+</code></pre></div>
+<p>Você acaba de aprender como criar uma tabela no BD e como inserir informações nessa tabela utilizando o interpretador do Python.
+Existe outras formas de fazer a inserção de informações nessa tabela e veremos isso adiante.</p>
+<h3 id="ambiente-administrativo-do-django">Ambiente Administrativo do Django</h3>
+<p>O Django Admin é uma ferramenta ótima do Django, na verdade é uma interface de usuário CRUD (Criar, Ler, Atualizar, Excluir) para todos os seus modelos!</p>
+<p>Para entrar na interface do usuário administrativo, inicie o servidor com este comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Na janela do navegador, digite na barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a></p>
+<p>A razão pela qual esta URL vai para a página de login do administrador do Django pode ser encontrada no arquivo <code>urls.py</code> do seu projeto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;biblioteca.urls&#39;</span><span class="p">)),</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span> <span class="c1"># definição da rota do ambiente adminstrativo</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>Explicação:</strong> A lista <code>urlpatterns[]</code> recebe solicitações na rota <code>admin/</code> e as envia para <code>admin.site.urls</code>, que faz parte de um aplicativo integrado que vem com o Django e contém muitas funcionalidades e interfaces de usuário, sendo uma delas a interface de usuário de login.</p>
+<h3 id="criando-um-usuario-no-django">Criando um Usuário no Django</h3>
+<p>Para poder fazer login no ambiente administrativo do Django, precisamos criar um usuário. Isso é feito digitando este comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</code></pre></div>
+<p>O que dará um prompt como esse:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Username:<span class="w"> </span>admin
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Email<span class="w"> </span>address:<span class="w"> </span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>Password:<span class="w"> </span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>Password<span class="w"> </span><span class="o">(</span>again<span class="o">)</span>:<span class="w"> </span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>The<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>too<span class="w"> </span>similar<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>username.
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>This<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>too<span class="w"> </span>short.<span class="w"> </span>It<span class="w"> </span>must<span class="w"> </span>contain<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">8</span><span class="w"> </span>characters.
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>This<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>too<span class="w"> </span>common.
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>Bypass<span class="w"> </span>password<span class="w"> </span>validation<span class="w"> </span>and<span class="w"> </span>create<span class="w"> </span>user<span class="w"> </span>anyway?<span class="w"> </span><span class="o">[</span>y/N<span class="o">]</span>:<span class="w"> </span>y
+</code></pre></div>
+<p><strong>OBS:</strong> Aqui você deve inserir: nome de usuário, endereço de e-mail (você pode simplesmente deixar em branco ou escolher um endereço de e-mail falso) e senha. Em meu caso coloquei usuário <code>admin</code> email em branco e senha <code>admin</code>.</p>
+<p>Minha senha não atendeu aos critérios, mas este é um ambiente de teste, e opto por criar usuário mesmo assim, digitando <code>y</code> gerando assim a saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Superuser<span class="w"> </span>created<span class="w"> </span>successfully.
+</code></pre></div>
+<p>Agora reinicie o servidor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Na janela do navegador, digite na barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a>.</p>
+<p>Preencha o formulário com o nome de usuário e senha corretos (<code>admin</code> e <code>admin</code>).</p>
+<p>Na interface aberta você pode criar, ler, atualizar e excluir grupos e usuários, mas onde está o modelo de Livro?</p>
+<p>O modelo Livro está faltando, como deveria estar. Você tem que informar ao Django quais modelos devem estar visíveis na interface administrativa.</p>
+<p>Para incluir o modelo Livro na interface administrativa, temos que dizer ao Django que este modelo deve estar visível na interface administrativa.</p>
+<p>Isso é feito em um arquivo chamado <code>admin.py</code>, e está localizado na pasta do seu aplicativo, que no nosso caso é a pasta <code>biblioteca</code>.</p>
+<p>Abra-o, o mesmo deve estar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="c1"># Register your models here.</span>
+</code></pre></div>
+<p>Insira algumas linhas aqui para tornar o modelo Livro visível na página de administração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Livro</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Livro</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a></p>
+<p>Clique em Livros e veja o registro de livros que inserimos anteriormente neste tutorial:</p>
+<p>Na lista de Livros, vemos "Livro object (1)", "Livro membro (2)" etc., que podem não ser os dados que você deseja que sejam exibidos na lista. Seria melhor exibir "nome" e "autor".</p>
+<p>Para mudar isso para um formato mais fácil de ler, temos duas opções:</p>
+<ul>
+<li>Alterar a função de representação de string <code>__str__()</code> do modelo de Livro.</li>
+<li>Definir a propriedade <code>list_details</code> do modelo de Livro.</li>
+</ul>
+<p>Para alterar utilizando a primeira forma, devemos alterar a função de representação de string <code>__str__()</code> do modelo de Livro. Para isso faça o seguinte no arquivo <code>models.py</code> dentro da pasta <code>biblioteca</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="k">class</span> <span class="nc">Livro</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>    <span class="n">ano</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1">#definição de função adionada</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">autor</span><span class="si">}</span><span class="s2">&quot;</span> 
+</code></pre></div>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a>.</p>
+<p>Para alterar utilizando a segunda forma (RECOMENDADA), devemos definir a propriedade <code>list_display</code> do arquivo <code>admin.py</code>. Primeiro crie uma classe <code>LivroAdmin()</code> e especifique a tupla <code>list_display</code>, assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Livro</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="k">class</span> <span class="nc">LivroAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nome&quot;</span><span class="p">,</span> <span class="s2">&quot;autor&quot;</span><span class="p">,</span> <span class="s2">&quot;ano&quot;</span><span class="p">)</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Livro</span><span class="p">,</span> <span class="n">LivroAdmin</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>OBS:</strong> Lembre-se de adicionar LivroAdmin como um argumento no arquivo, como em: <code>admin.site.register(Livro, LivroAdmin)</code>.</p>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a>.</p>
+<h3 id="adicionando-novos-livros">Adicionando novos Livros</h3>
+<p>Agora podemos criar, atualizar e excluir livros em nosso banco de dados.</p>
+<p>Iremos adicionar mais dois livros, clique no botão "ADD LIVRO" no canto superior direito:</p>
+<p>Você receberá um formulário vazio onde poderá preencher os campos do livro. Utilize as informações a seguir para preenchimento:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="p">{</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1984&quot;</span><span class="p">,</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">    </span><span class="nt">&quot;autor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="nt">&quot;ano&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1949</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="p">},</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="p">{</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dom Quixote&quot;</span><span class="p">,</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="w">    </span><span class="nt">&quot;autor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Miguel de Cervantes&quot;</span><span class="p">,</span>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="w">    </span><span class="nt">&quot;ano&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1605</span>
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Preencha os campos e clique em <code>SAVE</code>:</p>
+<h3 id="carregando-a-interface-livro-com-dados-do-bd">Carregando a Interface Livro com Dados do BD</h3>
+<p>Até aqui, vimos como trabalhar com o Banco de Dados, mas a interface da nossa aplicação (livro) ainda não está fazendo a leitura dos dados do BD.</p>
+<p>Agora, iremos atualizar a interface para puxar/pegar os dados do BD.</p>
+<p>Assim, é necessário atualizar o código <code>views.py</code> da pasta <code>biblioteca</code>. Devemos remover os dados que estavam inseridos estaticamente nesse arquivo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="o">...</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Livro</span>    <span class="c1"># adicione esta importação</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="o">...</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="k">def</span> <span class="nf">livros</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>         <span class="c1"># atualize esta função</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>    <span class="n">livros</span> <span class="o">=</span> <span class="n">Livro</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;livros.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>        <span class="s1">&#39;livros&#39;</span><span class="p">:</span> <span class="n">livros</span><span class="p">,</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>    <span class="p">}</span>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>
+</code></pre></div>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/livros">127.0.0.1:8000/livros</a>.</p>
+<p>Repare que os livros listados são somente os livros cadastrados no Banco de Dados.</p>
+<h3 id="configuracao-do-projeto-django-em-portugues">Configuração do Projeto Django em Português</h3>
+<p>Repare que todo o ambiente administrativo do django está em Inglês, vamos agora, alterar isso para português.</p>
+<p>Assim, no arquivo <code>settings.py</code> (na pasta <code>portal_biblioteca</code>), faça a seguinte alteração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="o">...</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;pt-BR&#39;</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="o">...</span>
+</code></pre></div>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a>.</p>
+<h3 id="carregando-a-interface-tcc-com-dados-do-bd">Carregando a Interface TCC com Dados do BD</h3>
+<p>Até aqui criamos apenas uma Tabela no BD que é Livro. Agora iremos criar uma Tabela TCC no Modelo do BD.</p>
+<p>Primeiramente, iremos criar uma classe chamada <code>TCC</code>. Para isso, abra o arquivo <code>models.py</code> na pasta <code>biblioteca</code> e digite o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="o">...</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="k">class</span> <span class="nc">TCC</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>    <span class="c1"># classe adiconada</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>    <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>    <span class="n">orientador</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>    <span class="n">ano</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">titulo</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">autor</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>O código acima irá criar uma Tabela chamada TCC no BD SQLite.</p>
+<p>Em seguida, execute o código abaixo para que seja criado a tabela TCC no banco de dados de fato:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>makemigrations<span class="w"> </span>biblioteca
+</code></pre></div>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Migrations<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;biblioteca&#39;</span>:
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span>biblioteca/migrations/0002_tcc.py
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>model<span class="w"> </span>TCC
+</code></pre></div>
+<p>A tabela ainda não foi criada, execute o comando de migração para que a tabela seja de fato criada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>Operations<span class="w"> </span>to<span class="w"> </span>perform:
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span>Apply<span class="w"> </span>all<span class="w"> </span>migrations:<span class="w"> </span>admin,<span class="w"> </span>auth,<span class="w"> </span>biblioteca,<span class="w"> </span>contenttypes,<span class="w"> </span>sessions
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>Running<span class="w"> </span>migrations:
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">  </span>Applying<span class="w"> </span>biblioteca.0002_tcc...<span class="w"> </span>OK
+</code></pre></div>
+<p>Agora, iremos informar ao Django quais modelos devem estar visíveis na interface administrativa. Para incluir o modelo TCC na interface administrativa, temos que dizer ao Django que este modelo deve estar visível na interface administrativa.</p>
+<p>Isso é feito em um arquivo chamado <code>admin.py</code>, e está localizado na pasta do seu aplicativo, que no nosso caso é a pasta <code>biblioteca</code>. Digite o seguinte código:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Livro</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">TCC</span>    <span class="c1">#linha adicionada</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="k">class</span> <span class="nc">LivroAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nome&quot;</span><span class="p">,</span> <span class="s2">&quot;autor&quot;</span><span class="p">,</span> <span class="s2">&quot;ano&quot;</span><span class="p">)</span>
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>
+<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="k">class</span> <span class="nc">TCCAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>  <span class="c1"># função adicionada</span>
+<a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a>    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;titulo&quot;</span><span class="p">,</span> <span class="s2">&quot;autor&quot;</span><span class="p">,</span> <span class="s2">&quot;orientador&quot;</span><span class="p">,</span> <span class="s2">&quot;ano&quot;</span><span class="p">)</span>
+<a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a>
+<a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Livro</span><span class="p">,</span> <span class="n">LivroAdmin</span><span class="p">)</span>
+<a id="__codelineno-50-12" name="__codelineno-50-12" href="#__codelineno-50-12"></a><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">TCC</span><span class="p">,</span> <span class="n">TCCAdmin</span><span class="p">)</span> <span class="c1"># linha adicionada</span>
+</code></pre></div>
+<p>Agora, reinicie o servidor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Agora, volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a>.</p>
+<p>Agora, podemos criar, atualizar e excluir TCCs em nosso banco de dados.</p>
+<p>Iremos adicionar mais três TCCs, clique no botão "ADICIONAR TCC" no canto superior direito:</p>
+<p>Você receberá um formulário vazio onde poderá preencher os campos do TCC. Utilize as informações a seguir para preenchimento:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="p">{</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="nt">&quot;titulo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sistemas de Recomendação Personalizados&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w">    </span><span class="nt">&quot;autor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Maria Silva&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="w">    </span><span class="nt">&quot;orientador&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Prof. João Santos&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="w">    </span><span class="nt">&quot;ano&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2021</span>
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="p">},</span>
+<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="p">{</span>
+<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="w">    </span><span class="nt">&quot;titulo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Segurança de Redes em Ambientes Corporativos&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a><span class="w">    </span><span class="nt">&quot;autor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pedro Oliveira&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a><span class="w">    </span><span class="nt">&quot;orientador&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Profa. Ana Rodrigues&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a><span class="w">    </span><span class="nt">&quot;ano&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2020</span>
+<a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a><span class="p">},</span>
+<a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a><span class="p">{</span>
+<a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a><span class="w">    </span><span class="nt">&quot;titulo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Inteligência Artificial Aplicada à Análise de Dados&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-15" name="__codelineno-52-15" href="#__codelineno-52-15"></a><span class="w">    </span><span class="nt">&quot;autor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Luana Costa&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-16" name="__codelineno-52-16" href="#__codelineno-52-16"></a><span class="w">    </span><span class="nt">&quot;orientador&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Prof. André Martins&quot;</span><span class="p">,</span>
+<a id="__codelineno-52-17" name="__codelineno-52-17" href="#__codelineno-52-17"></a><span class="w">    </span><span class="nt">&quot;ano&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span>
+<a id="__codelineno-52-18" name="__codelineno-52-18" href="#__codelineno-52-18"></a><span class="p">}</span>
+</code></pre></div>
+<p>Preencha os campos e clique em <code>SAVE</code>:</p>
+<p>Agora, iremos atualizar a interface do TCC para puxar/pegar os dados do BD.</p>
+<p>Assim, é necessário atualizar o código <code>views.py</code> da pasta <code>biblioteca</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="o">...</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">TCC</span>    <span class="c1"># adicione esta importação</span>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="o">...</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="k">def</span> <span class="nf">tccs</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>         <span class="c1"># atualize esta função</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>    <span class="n">tccs</span> <span class="o">=</span> <span class="n">TCC</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;tccs.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>        <span class="s1">&#39;tccs&#39;</span><span class="p">:</span> <span class="n">tccs</span><span class="p">,</span>
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a>    <span class="p">}</span>
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>
+</code></pre></div>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/tccs">127.0.0.1:8000/tccs</a>.</p>
+<p>Repare que os TCCs listados são somente os TCCs cadastrados no Banco de Dados.</p>
+<p>Ainda no código <code>views.py</code> da pasta <code>biblioteca</code> atualize a função <code>tcc_detalhes</code> para que a mesma pegue os dados também do banco de dados baseado no <code>id</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="o">...</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="k">def</span> <span class="nf">tcc_detalhes</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>    <span class="n">tcc</span> <span class="o">=</span> <span class="n">TCC</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;tcc_detalhes.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>        <span class="s1">&#39;tcc&#39;</span><span class="p">:</span> <span class="n">tcc</span><span class="p">,</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>    <span class="p">}</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>
+</code></pre></div>
+<p>Para mais informações, consulte a <a href="https://docs.djangoproject.com/en/4.2/topics/db/models/">documentação oficial do django</a>.</p>
+<h3 id="adicionando-controle-de-usuarios-no-django">Adicionando Controle de Usuários no Django</h3>
+<p>Esta parte do tutorial foi baseada na <a href="https://docs.djangoproject.com/en/4.2/topics/auth/default/">documentação oficial django</a> e também na <a href="https://www.youtube.com/watch?v=gdhiA6wObw0">videoaula</a>.</p>
+<p>O Django possui já prontos diversos recursos para trabalhar com autenticação de usuários e controle de nível de acesso.</p>
+<p>Agora, iremos adicionar em nosso projeto um sistema de gestão de usuários. Para criarmos na sequência as telas de login e cadastro na plataforma.</p>
+<p>Para isso, iremos criar uma outra aplicação/aplicativo web dentro do nosso projeto. Assim, digite o seguinte conteúdo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>usuarios
+</code></pre></div>
+<p>Agora, atualize a lista <code>INSTALLED_APPS</code> em <code>settings.py</code> na pasta <code>portal_biblioteca</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="o">...</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>    <span class="s1">&#39;biblioteca&#39;</span><span class="p">,</span>
+<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>    <span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="c1">#adicone seu app aqui </span>
+<a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a><span class="p">]</span>
+<a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a><span class="o">...</span>
+</code></pre></div>
+<p>Agora, crie na pasta <code>usuarios</code> um arquivo chamado <code>urls.py</code> com o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">login</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;login&#39;</span><span class="p">),</span>
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;cadastro&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">cadastro</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cadastro&#39;</span><span class="p">),</span>
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="p">]</span>
+</code></pre></div>
+<p>Agora, precisamos informar a nossa aplicação principal da existência dessas novas URLs. Assim, edite o código <code>urls.py</code> da pasta <code>porta_biblioteca</code> da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;biblioteca.urls&#39;</span><span class="p">)),</span>
+<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;auth/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;usuarios.urls&#39;</span><span class="p">)),</span>   <span class="c1">#adicione essa linha aqui</span>
+<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a><span class="p">]</span>
+</code></pre></div>
+<p>Agora, precisamos definir as views do nosso sistema de login e cadastro. Assim, digite o código abaixo no arquivo <code>views.py</code> na pasta <code>usuarios</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="k">def</span> <span class="nf">cadastro</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;cadastro.html&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora, iremos criar uma pasta chamada <code>templates</code> dentro da aplicação <code>usuarios</code>. Nesta pasta, iremos criar um arquivo chamado <code>login.html</code> com o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Ainda nesta pasta, iremos criar também um arquivo chamado <code>cadastro.html</code> com o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Cadastro<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Agora, reinicie o servidor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Agora, volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/">127.0.0.1:8000/</a>. Navegue pelas abas Login e Cadastre-se.</p>
+<h3 id="melhorando-a-tela-de-cadastro">Melhorando a Tela de Cadastro</h3>
+<p>Agora, iremos definir melhor a tela de Cadastro.</p>
+<p>No arquivo <code>cadastro.html</code> digite o seguinte:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>{% extends &quot;base.html&quot; %}
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>{% block titulo %}
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>    Portal Biblioteca - Cadastro
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>{% endblock %}
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>{% block conteudo %}
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mycard&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Cadastre-se<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>        <span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+<a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a>        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{% url &#39;cadastro&#39; %}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a>            {% csrf_token %}
+<a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a>            Usuário: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Usuário ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;usuario&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a>            E-mail: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;E-mail ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-63-18" name="__codelineno-63-18" href="#__codelineno-63-18"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-63-19" name="__codelineno-63-19" href="#__codelineno-63-19"></a>            Senha: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Senha ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;senha&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-63-20" name="__codelineno-63-20" href="#__codelineno-63-20"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-63-21" name="__codelineno-63-21" href="#__codelineno-63-21"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-63-22" name="__codelineno-63-22" href="#__codelineno-63-22"></a>            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Cadastrar&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-63-23" name="__codelineno-63-23" href="#__codelineno-63-23"></a>        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-63-24" name="__codelineno-63-24" href="#__codelineno-63-24"></a>        <span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+<a id="__codelineno-63-25" name="__codelineno-63-25" href="#__codelineno-63-25"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-63-26" name="__codelineno-63-26" href="#__codelineno-63-26"></a>{% endblock %}
+</code></pre></div>
+<p><strong>Explicação:</strong> O código acima cria um formulário com os seguintes campos: usuário, email, senha e botão cadastrar. Neste formulário, quando clicado no botão cadastrar enviará uma ação via método POST para a url de nome <code>cadastro</code> (nome definida no arquivo <code>url.py</code>). A tag <code>csrf_token</code> é necessária para fazer uma verificação de segurança.</p>
+<p><strong>Explicação:</strong> O CSRF Token, que significa "Cross-Site Request Forgery Token" (Token de Proteção contra Solicitação Falsificada entre Sites), é uma medida de segurança utilizada em aplicações da web para proteger contra ataques CSRF (Cross-Site Request Forgery), também conhecidos como ataques de falsificação de solicitação entre sites. Um ataque CSRF ocorre quando um invasor engana um usuário autenticado a executar ações indesejadas em um site sem o conhecimento ou consentimento do usuário. Isso é feito explorando o fato de que os navegadores da web geralmente incluem automaticamente cookies de sessão em todas as solicitações para um domínio, incluindo solicitações maliciosas.</p>
+<p>Em seguida, atualize o código do método cadastro na <code>view.py</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="o">...</span>
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="k">def</span> <span class="nf">cadastro</span><span class="p">(</span><span class="n">request</span><span class="p">):</span> <span class="c1"># atualize essa função</span>
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+<a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;cadastro.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>    <span class="k">else</span><span class="p">:</span> <span class="c1">#senão será via método &quot;POST&quot;:</span>
+<a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a>        <span class="n">usuario</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;usuario&#39;</span><span class="p">)</span>
+<a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a>        <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+<a id="__codelineno-64-8" name="__codelineno-64-8" href="#__codelineno-64-8"></a>        <span class="n">senha</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;senha&#39;</span><span class="p">)</span>
+<a id="__codelineno-64-9" name="__codelineno-64-9" href="#__codelineno-64-9"></a>        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">usuario</span><span class="p">)</span>
+</code></pre></div>
+<p>Em seguida, acesse o servidor e efetue um cadastro e analise o resultado na tela.</p>
+<p>Até aqui, não efetuamos de fato um cadastro, apenas exibimos na tela a informação do usuário. </p>
+<p>Agora, iremos inserir as informações cadastradas no BD.</p>
+<p>Assim, atualize o código do método <code>cadastro</code> na <code>view.py</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="o">...</span>
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a>
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="k">def</span> <span class="nf">cadastro</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+<a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;cadastro.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>    <span class="k">else</span><span class="p">:</span> <span class="c1">#senão será via método &quot;POST&quot;:</span>
+<a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a>        <span class="n">usuario</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;usuario&#39;</span><span class="p">)</span>
+<a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a>        <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+<a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a>        <span class="n">senha</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;senha&#39;</span><span class="p">)</span>
+<a id="__codelineno-65-12" name="__codelineno-65-12" href="#__codelineno-65-12"></a>
+<a id="__codelineno-65-13" name="__codelineno-65-13" href="#__codelineno-65-13"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">usuario</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-65-14" name="__codelineno-65-14" href="#__codelineno-65-14"></a>        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+<a id="__codelineno-65-15" name="__codelineno-65-15" href="#__codelineno-65-15"></a>            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Já existe um usuário com esse username&#39;</span><span class="p">)</span>
+<a id="__codelineno-65-16" name="__codelineno-65-16" href="#__codelineno-65-16"></a>
+<a id="__codelineno-65-17" name="__codelineno-65-17" href="#__codelineno-65-17"></a>        <span class="c1"># se não existir usuário com esse nome cria e salva o mesmo.</span>
+<a id="__codelineno-65-18" name="__codelineno-65-18" href="#__codelineno-65-18"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">usuario</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">senha</span><span class="p">)</span>
+<a id="__codelineno-65-19" name="__codelineno-65-19" href="#__codelineno-65-19"></a>        <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a id="__codelineno-65-20" name="__codelineno-65-20" href="#__codelineno-65-20"></a>
+<a id="__codelineno-65-21" name="__codelineno-65-21" href="#__codelineno-65-21"></a>        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Usuário cadastrado com sucesso&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Em seguida, acesse o servidor e efetue um cadastro e analise o resultado na tela e também no menu administrativo do Django. Efetue também cadastro de dois usuários com mesmo nome e analise o resultado.</p>
+<p><strong>OBS:</strong> O Django não armazena senhas brutas (texto não criptografado) no modelo de usuário. Ele armazena apenas um hash da senha.</p>
+<p>Para mais detalhes sobre a classe <code>User</code> consulte a <a href="https://docs.djangoproject.com/en/4.2/topics/auth/default/">documentação oficial</a>.</p>
+<h3 id="melhorando-a-tela-de-login">Melhorando a Tela de Login</h3>
+<p>Agora, iremos definir melhor a tela de Login.</p>
+<p>No arquivo <code>login.html</code> digite o seguinte:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>{% extends &quot;base.html&quot; %}
+<a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>
+<a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>{% block titulo %}
+<a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a>    Portal Biblioteca - Login
+<a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a>{% endblock %}
+<a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a>
+<a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a>{% block conteudo %}
+<a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mycard&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a>        <span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+<a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a>        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{% url &#39;login&#39; %}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-66-12" name="__codelineno-66-12" href="#__codelineno-66-12"></a>            {% csrf_token %}
+<a id="__codelineno-66-13" name="__codelineno-66-13" href="#__codelineno-66-13"></a>            Usuário: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Usuário ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;usuario&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-66-14" name="__codelineno-66-14" href="#__codelineno-66-14"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-66-15" name="__codelineno-66-15" href="#__codelineno-66-15"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-66-16" name="__codelineno-66-16" href="#__codelineno-66-16"></a>            Senha: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Senha ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;senha&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-66-17" name="__codelineno-66-17" href="#__codelineno-66-17"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-66-18" name="__codelineno-66-18" href="#__codelineno-66-18"></a>            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-66-19" name="__codelineno-66-19" href="#__codelineno-66-19"></a>            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Logar&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-66-20" name="__codelineno-66-20" href="#__codelineno-66-20"></a>        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-66-21" name="__codelineno-66-21" href="#__codelineno-66-21"></a>        <span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+<a id="__codelineno-66-22" name="__codelineno-66-22" href="#__codelineno-66-22"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-66-23" name="__codelineno-66-23" href="#__codelineno-66-23"></a>{% endblock %}
+</code></pre></div>
+<p>Em seguida, atualize o código do método <code>login</code> na <code>view.py</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span>
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="o">...</span>
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">request</span><span class="p">):</span> <span class="c1">#atualize essa função</span>
+<a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+<a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-67-7" name="__codelineno-67-7" href="#__codelineno-67-7"></a>        <span class="n">usuario</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;usuario&#39;</span><span class="p">)</span>
+<a id="__codelineno-67-8" name="__codelineno-67-8" href="#__codelineno-67-8"></a>        <span class="n">senha</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;senha&#39;</span><span class="p">)</span>
+<a id="__codelineno-67-9" name="__codelineno-67-9" href="#__codelineno-67-9"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">senha</span><span class="p">)</span>
+<a id="__codelineno-67-10" name="__codelineno-67-10" href="#__codelineno-67-10"></a>        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+<a id="__codelineno-67-11" name="__codelineno-67-11" href="#__codelineno-67-11"></a>            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Autenticado&#39;</span><span class="p">)</span>
+<a id="__codelineno-67-12" name="__codelineno-67-12" href="#__codelineno-67-12"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-67-13" name="__codelineno-67-13" href="#__codelineno-67-13"></a>            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Usuario ou Senha inválidos&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora, acesse o servidor e efetue um login e analise o resultado na tela. Tente colocar um usuário válido e um usuário inválido.</p>
+<p>Em seguida, atualize o código do método cadastro na <code>view.py</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">login</span> <span class="k">as</span> <span class="n">login_django</span> <span class="c1">#importe também o login</span>
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="o">...</span>
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a>        <span class="n">usuario</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;usuario&#39;</span><span class="p">)</span>
+<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a>        <span class="n">senha</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;senha&#39;</span><span class="p">)</span>
+<a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a>
+<a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">senha</span><span class="p">)</span>
+<a id="__codelineno-68-12" name="__codelineno-68-12" href="#__codelineno-68-12"></a>        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+<a id="__codelineno-68-13" name="__codelineno-68-13" href="#__codelineno-68-13"></a>            <span class="n">login_django</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="c1"># linha adicionada</span>
+<a id="__codelineno-68-14" name="__codelineno-68-14" href="#__codelineno-68-14"></a>            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Autenticado&#39;</span><span class="p">)</span>
+<a id="__codelineno-68-15" name="__codelineno-68-15" href="#__codelineno-68-15"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-68-16" name="__codelineno-68-16" href="#__codelineno-68-16"></a>            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Usuario ou Senha inválidos&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora, acesse o servidor e efetue um login e analise o resultado na tela. Tente colocar um usuário válido e um usuário inválido. Neste ponto ainda não dá para ver muita diferença entre os dois útlimos passos.</p>
+<p><strong>Explicação:</strong> As principais diferenças entre "authenticate" e "login" do django são destacadas a seguir:</p>
+<p><strong>authenticate:</strong>
+* O método "authenticate" é uma função fornecida pelo Django que é usada para verificar as credenciais de um usuário em um sistema de autenticação.
+* Ele recebe as informações de login do usuário, como nome de usuário e senha, e verifica se essas informações correspondem a um usuário registrado no sistema.
+* Se as credenciais estiverem corretas, o método "authenticate" retornará um objeto de usuário válido que representa o usuário autenticado. Caso contrário, retornará "None".</p>
+<p><strong>login:</strong>
+* O método "login" refere-se ao processo de estabelecer uma sessão de usuário autenticada em um aplicativo da web após a autenticação bem-sucedida.
+* O Django fornece uma função chamada "login" que permite que você associe um objeto de usuário autenticado a uma sessão. Isso é importante para manter o estado de autenticação do usuário durante a sessão.
+* A função "login" normalmente é usada após o usuário ser autenticado com sucesso usando o "authenticate".</p>
+<h3 id="dashboard-disponivel-apenas-para-usuarios-logados">Dashboard Disponível Apenas para Usuários Logados</h3>
+<p>Agora, iremos permitir que a visualização dos dashboards esteja disponível apenas se o usuário estiver logado na plataforma.</p>
+<p>Dessa maneira, atualize o código da função dashboard em <code>view.py</code> da pasta <code>biblioteca</code> para o seguinte.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="o">...</span>
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a><span class="k">def</span> <span class="nf">dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>        <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;dashboard.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a>        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+<a id="__codelineno-69-6" name="__codelineno-69-6" href="#__codelineno-69-6"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Você precisa estar logado!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Em seguida, abra uma guia anônima do navegador e tente acessar a tela de dashboard. Na sequência, faça login na plataforma e então tente acessar o dashboard.</p>
+<p>Uma outra forma de fazer a mesma operação é utilizando o decorador <code>login_required</code>. Atualize o seu código da função dashborad em <code>view.py</code> da pasta <code>biblioteca</code> para o seguinte.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="o">...</span>
+<a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="nd">@login_required</span><span class="p">(</span><span class="n">login_url</span><span class="o">=</span><span class="s2">&quot;/auth/login&quot;</span><span class="p">)</span>
+<a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a><span class="k">def</span> <span class="nf">dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;dashboard.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+</code></pre></div>
+<p>Em seguida, abra uma guia anônima do navegador e tente acessar a tela de dashboard. Perceba que portal redireciona para a tela de login, isso ocorre, pois colocamos isso no parâmetro <code>login_url</code>. Na sequência, faça login na plataforma e então tente acessar o dashboard.</p>
+<h3 id="adicionando-botao-de-logout-no-sistema">Adicionando Botão de Logout no Sistema</h3>
+<p>Agora, iremos adicionar no nosso sistema um botão para efetuar o logout.</p>
+<p>Para isso, vá no arquivo <code>base.html</code> na pasta <code>templates</code> na pasta <code>biblioteca</code>. E edite o HTML adicionando as linhas destacadas.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>...
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/cadastro&quot;</span><span class="p">&gt;</span>CADASTRE-SE<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/logout&quot;</span><span class="p">&gt;</span>LOGOUT<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>...
+</code></pre></div>
+<p>Em seguida, vá no arquivo <code>urls.py</code> da pasta <code>usuarios</code> e adicione a seguinte rota.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="o">...</span>
+<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;logout&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">logout</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;logout&#39;</span><span class="p">),</span>
+<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="o">...</span>
+</code></pre></div>
+<p>Em seguida, vá no arquivo <code>views.py</code> da pasta <code>ùsuarios</code> e adicione o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">logout</span> <span class="k">as</span> <span class="n">logout_django</span>
+<a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="o">...</span>
+<a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>
+<a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a><span class="k">def</span> <span class="nf">logout</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a>    <span class="n">logout_django</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<a id="__codelineno-73-6" name="__codelineno-73-6" href="#__codelineno-73-6"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Usuario deslogado do sistema!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Explicação:</strong> Quando você chama <code>logout()</code> do django ou <code>logout_django()</code> neste caso, os dados da sessão da solicitação atual são completamente limpos. Todos os dados existentes são removidos. Isso evita que outra pessoa use o mesmo navegador para fazer login e ter acesso aos dados da sessão do usuário anterior.</p>
+<p>Em seguida, acesse o sistema, faça logout, tente acessar a página de dashboard, faça login, tente acessar a página de dashboard. Analise as mensagens impressas.</p>
+<h3 id="adicionando-bootstrap-no-sistema">Adicionando Bootstrap no Sistema</h3>
+<p>Neste passo, iremos melhorar a aparência do nosso sistema utilizando o framework Bootstrap. Caso tenha dúvidas em como funciona o Bootstrap consulte a <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">documentação oficial</a> ou o <a href="https://www.w3schools.com/bootstrap5/index.php">curso da w3schools</a>.</p>
+<p>Para incorporar o bootstrap no nosso sistema primeiro, atualize o arquivo <code>base.html</code> da pasta <code>biblioteca</code> e subpasta <code>templates</code> conforme código abaixo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>{% load static %}
+<a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>
+<a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a>        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% static &#39;mystyles.css&#39; %}&quot;</span><span class="p">&gt;</span> 
+<a id="__codelineno-74-7" name="__codelineno-74-7" href="#__codelineno-74-7"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block titulo %}{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-74-8" name="__codelineno-74-8" href="#__codelineno-74-8"></a>        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>  
+<a id="__codelineno-74-9" name="__codelineno-74-9" href="#__codelineno-74-9"></a>        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-74-10" name="__codelineno-74-10" href="#__codelineno-74-10"></a>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-74-11" name="__codelineno-74-11" href="#__codelineno-74-11"></a>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-74-12" name="__codelineno-74-12" href="#__codelineno-74-12"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;topnav&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-74-13" name="__codelineno-74-13" href="#__codelineno-74-13"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>PRINCIPAL<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-74-14" name="__codelineno-74-14" href="#__codelineno-74-14"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/livros&quot;</span><span class="p">&gt;</span>LIVROS<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-74-15" name="__codelineno-74-15" href="#__codelineno-74-15"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/tccs&quot;</span><span class="p">&gt;</span>TCCs<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-74-16" name="__codelineno-74-16" href="#__codelineno-74-16"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/dashboard&quot;</span><span class="p">&gt;</span>DASHBOARD<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-74-17" name="__codelineno-74-17" href="#__codelineno-74-17"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/login&quot;</span><span class="p">&gt;</span>LOGIN<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-74-18" name="__codelineno-74-18" href="#__codelineno-74-18"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/cadastro&quot;</span><span class="p">&gt;</span>CADASTRE-SE<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> |
+<a id="__codelineno-74-19" name="__codelineno-74-19" href="#__codelineno-74-19"></a>            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/logout&quot;</span><span class="p">&gt;</span>LOGOUT<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-74-20" name="__codelineno-74-20" href="#__codelineno-74-20"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-74-21" name="__codelineno-74-21" href="#__codelineno-74-21"></a>        {% block conteudo %}
+<a id="__codelineno-74-22" name="__codelineno-74-22" href="#__codelineno-74-22"></a>        {% endblock %}
+<a id="__codelineno-74-23" name="__codelineno-74-23" href="#__codelineno-74-23"></a>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-74-24" name="__codelineno-74-24" href="#__codelineno-74-24"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Em seguida, atualize o arquivo <code>login.html</code> da pasta <code>usuario</code> e subpasta <code>templates</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>...
+<a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{% url &#39;login&#39; %}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>    {% csrf_token %}
+<a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group-text&quot;</span><span class="p">&gt;</span>Usuário: <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Usuário ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;usuario&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-75-8" name="__codelineno-75-8" href="#__codelineno-75-8"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-75-9" name="__codelineno-75-9" href="#__codelineno-75-9"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-75-10" name="__codelineno-75-10" href="#__codelineno-75-10"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group-text&quot;</span><span class="p">&gt;</span>Senha: <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<a id="__codelineno-75-11" name="__codelineno-75-11" href="#__codelineno-75-11"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Senha ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;senha&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-75-12" name="__codelineno-75-12" href="#__codelineno-75-12"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-75-13" name="__codelineno-75-13" href="#__codelineno-75-13"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-75-14" name="__codelineno-75-14" href="#__codelineno-75-14"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Logar&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-75-15" name="__codelineno-75-15" href="#__codelineno-75-15"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-75-16" name="__codelineno-75-16" href="#__codelineno-75-16"></a>...
+</code></pre></div>
+<p>Em seguida, atualize o arquivo <code>cadastro.html</code> da pasta <code>usuario</code> e subpasta <code>templates</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>...
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{% url &#39;cadastro&#39; %}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>    {% csrf_token %}
+<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group-text&quot;</span><span class="p">&gt;</span>Usuário: <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Usuário ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;usuario&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-76-9" name="__codelineno-76-9" href="#__codelineno-76-9"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-10" name="__codelineno-76-10" href="#__codelineno-76-10"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group-text&quot;</span><span class="p">&gt;</span>E-mail: <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<a id="__codelineno-76-11" name="__codelineno-76-11" href="#__codelineno-76-11"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;E-mail ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-12" name="__codelineno-76-12" href="#__codelineno-76-12"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-76-13" name="__codelineno-76-13" href="#__codelineno-76-13"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-76-14" name="__codelineno-76-14" href="#__codelineno-76-14"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-15" name="__codelineno-76-15" href="#__codelineno-76-15"></a>        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-group-text&quot;</span><span class="p">&gt;</span>Senha: <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<a id="__codelineno-76-16" name="__codelineno-76-16" href="#__codelineno-76-16"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Senha ...&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;senha&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-76-17" name="__codelineno-76-17" href="#__codelineno-76-17"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-76-18" name="__codelineno-76-18" href="#__codelineno-76-18"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-76-19" name="__codelineno-76-19" href="#__codelineno-76-19"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Cadastrar&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>        
+<a id="__codelineno-76-20" name="__codelineno-76-20" href="#__codelineno-76-20"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-76-21" name="__codelineno-76-21" href="#__codelineno-76-21"></a>...
+</code></pre></div>
+<p>Em seguida, acesse a aplicação no navegador e análise a nova interface do sistema nas telas de login e cadastro.</p>
+<h3 id="adicionando-no-dashboard-informacao-do-usuario-logado">Adicionando no Dashboard Informação do Usuário Logado</h3>
+<p>Nessa etapa desejamos adicionar informações do usuário logado na tela do dashboard.</p>
+<p>Primeiramente, iremos atualizar o método dashboard no arquivo <code>views.py</code> da pasta <code>biblioteca</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="nd">@login_required</span><span class="p">(</span><span class="n">login_url</span><span class="o">=</span><span class="s2">&quot;/auth/login&quot;</span><span class="p">)</span>
+<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="k">def</span> <span class="nf">dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;dashboard.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>    <span class="c1"># Você pode acessar o usuário logado através de request.user</span>
+<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>    <span class="c1"># Agora você pode fazer qualquer coisa com o objeto &#39;user&#39;, como acessar seus campos, por exemplo:</span>
+<a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+<a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+<a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a>        <span class="s1">&#39;usuario&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+<a id="__codelineno-77-11" name="__codelineno-77-11" href="#__codelineno-77-11"></a>        <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+<a id="__codelineno-77-12" name="__codelineno-77-12" href="#__codelineno-77-12"></a>    <span class="p">}</span>
+<a id="__codelineno-77-13" name="__codelineno-77-13" href="#__codelineno-77-13"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>
+</code></pre></div>
+<p>Em seguida, é necessário atualizar também o arquivo <code>dashboard.html</code> da <code>biblioteca</code> e subpasta <code>templates</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>{% extends &quot;base.html&quot; %}
+<a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a>
+<a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a>{% load static %}
+<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>
+<a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a>{% block titulo %}
+<a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a>    Portal Biblioteca - Dashboard
+<a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>{% endblock %}
+<a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a>
+<a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a>{% block conteudo %}
+<a id="__codelineno-78-10" name="__codelineno-78-10" href="#__codelineno-78-10"></a>    <span class="cm">&lt;!-- Início do bloco de código adicionado --&gt;</span>
+<a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a>    <span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+<a id="__codelineno-78-12" name="__codelineno-78-12" href="#__codelineno-78-12"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-78-13" name="__codelineno-78-13" href="#__codelineno-78-13"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:240px&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-78-14" name="__codelineno-78-14" href="#__codelineno-78-14"></a>        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-img-top&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;img_avatar.png&#39; %}&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Imagem do card&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-78-15" name="__codelineno-78-15" href="#__codelineno-78-15"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-body&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-78-16" name="__codelineno-78-16" href="#__codelineno-78-16"></a>          <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-title&quot;</span><span class="p">&gt;</span> {{ usuario }} <span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<a id="__codelineno-78-17" name="__codelineno-78-17" href="#__codelineno-78-17"></a>          <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-text&quot;</span><span class="p">&gt;</span>Email: {{ email }} <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-78-18" name="__codelineno-78-18" href="#__codelineno-78-18"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-19" name="__codelineno-78-19" href="#__codelineno-78-19"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-20" name="__codelineno-78-20" href="#__codelineno-78-20"></a>    <span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+<a id="__codelineno-78-21" name="__codelineno-78-21" href="#__codelineno-78-21"></a>    <span class="cm">&lt;!-- Fim do bloco de código adicionado --&gt;</span>
+<a id="__codelineno-78-22" name="__codelineno-78-22" href="#__codelineno-78-22"></a>
+<a id="__codelineno-78-23" name="__codelineno-78-23" href="#__codelineno-78-23"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mycard&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-78-24" name="__codelineno-78-24" href="#__codelineno-78-24"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Dashboard<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-78-25" name="__codelineno-78-25" href="#__codelineno-78-25"></a>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-26" name="__codelineno-78-26" href="#__codelineno-78-26"></a>            <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;graficoNumVolumes&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+<a id="__codelineno-78-27" name="__codelineno-78-27" href="#__codelineno-78-27"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-28" name="__codelineno-78-28" href="#__codelineno-78-28"></a>        <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-78-29" name="__codelineno-78-29" href="#__codelineno-78-29"></a>        <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-78-30" name="__codelineno-78-30" href="#__codelineno-78-30"></a>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-31" name="__codelineno-78-31" href="#__codelineno-78-31"></a>            <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;graficoPizza&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+<a id="__codelineno-78-32" name="__codelineno-78-32" href="#__codelineno-78-32"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-33" name="__codelineno-78-33" href="#__codelineno-78-33"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-78-34" name="__codelineno-78-34" href="#__codelineno-78-34"></a>
+<a id="__codelineno-78-35" name="__codelineno-78-35" href="#__codelineno-78-35"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-78-36" name="__codelineno-78-36" href="#__codelineno-78-36"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;myscripts.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-78-37" name="__codelineno-78-37" href="#__codelineno-78-37"></a>{% endblock %}
+</code></pre></div>
+<p>Em seguida, é necessário copiar o arquivo <code>img_avatar.png</code> da pasta <code>docs</code> para a pasta <code>staticfiles</code>.</p>
+<p>Em seguida, execute o seguinte comando abaixo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</code></pre></div>
+<p>Em seguida, reinicie o servidor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Analise a página de dashboard com diferentes usários logados no sistema.</p>
+<h3 id="algumas-informacoes-adicionais">Algumas Informações Adicionais</h3>
+<p>Caso queira ver o que foi feito no BD, basta digitar o comando abaixo com o número da migração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>sqlmigrate<span class="w"> </span>biblioteca<span class="w"> </span><span class="m">0001</span>
+</code></pre></div>
+<p><strong>Obs:</strong> no comando acima <code>biblioteca</code> representa o nome da nossa aplicação web e o número 0001 é o número da migração.</p>
+<p>A saída desse comando é algo parecido com:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="c1">--</span>
+<a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="c1">-- Create model Livro</span>
+<a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a><span class="c1">--</span>
+<a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="ss">&quot;biblioteca_livro&quot;</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;nome&quot;</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;autor&quot;</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;ano&quot;</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span>
+<a id="__codelineno-82-6" name="__codelineno-82-6" href="#__codelineno-82-6"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<p>Para vermos com detalhes o conteúdo do BD podemos utilizar a ferramenta <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>. Assim, basta abrir o arquivo do BD chamado <code>db.sqlite3</code> que está na raiz do projeto.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - GAC116 - Programação Web - UFLA.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

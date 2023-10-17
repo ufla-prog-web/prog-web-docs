@@ -1,0 +1,1071 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Material Didático - GAC116 - Programação Web.">
+      
+      
+        <meta name="author" content="Prof. Jesimar Arantes">
+      
+      
+        <link rel="canonical" href="https://pgstzetta.ufla.br/aula-django-01/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../aula-django-02/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Aula Django 01 - Material Didático - GAC116</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="dark-blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aula-django-01-visao-geral-do-django" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Material Didático - GAC116" class="md-header__button md-logo" aria-label="Material Didático - GAC116" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Didático - GAC116
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aula Django 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="dark-blue"  aria-label="Trocar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Trocar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue-grey"  aria-label="Trocar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Trocar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ufla-prog-web" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ufla-prog-web
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Material Didático - GAC116" class="md-nav__button md-logo" aria-label="Material Didático - GAC116" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Material Didático - GAC116
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ufla-prog-web" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ufla-prog-web
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aula Django 01
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aula Django 01
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linguagens-utilizadas" class="md-nav__link">
+    Linguagens Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-utilizados" class="md-nav__link">
+    Framework Utilizados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-utilizadas" class="md-nav__link">
+    Ferramentas Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-utilizados-na-criacao-deste-projeto" class="md-nav__link">
+    Comandos utilizados na criação deste projeto
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos utilizados na criação deste projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baixando-o-repositorio" class="md-nav__link">
+    Baixando o Repositório
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-python" class="md-nav__link">
+    Instalação do Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-pip" class="md-nav__link">
+    Instalação do Pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-virtualenv" class="md-nav__link">
+    Instalação do VirtualEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-ambiente-virtual" class="md-nav__link">
+    Criação do Ambiente Virtual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-django" class="md-nav__link">
+    Instalação do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-projeto-django" class="md-nav__link">
+    Criação do Projeto Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executando-o-projeto" class="md-nav__link">
+    Executando o Projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-aplicativo" class="md-nav__link">
+    Criando um Aplicativo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-a-primeira-view-no-django" class="md-nav__link">
+    Criando a Primeira View no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-o-primeiro-template-no-django" class="md-nav__link">
+    Criando o Primeiro Template no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passando-parametros-para-o-template-do-django" class="md-nav__link">
+    Passando Parâmetros para o Template do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-nosso-primeiro-modelo" class="md-nav__link">
+    Criando nosso Primeiro Modelo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambiente-administrativo-do-django" class="md-nav__link">
+    Ambiente Administrativo do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-usuario-no-django" class="md-nav__link">
+    Criando um Usuário no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizando-o-modelo-de-dados" class="md-nav__link">
+    Visualizando o Modelo de Dados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fim-do-tutorial" class="md-nav__link">
+    Fim do Tutorial
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aula-django-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula Django 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aula-django-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula Django 03
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linguagens-utilizadas" class="md-nav__link">
+    Linguagens Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-utilizados" class="md-nav__link">
+    Framework Utilizados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-utilizadas" class="md-nav__link">
+    Ferramentas Utilizadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-utilizados-na-criacao-deste-projeto" class="md-nav__link">
+    Comandos utilizados na criação deste projeto
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos utilizados na criação deste projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baixando-o-repositorio" class="md-nav__link">
+    Baixando o Repositório
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-python" class="md-nav__link">
+    Instalação do Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-pip" class="md-nav__link">
+    Instalação do Pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-virtualenv" class="md-nav__link">
+    Instalação do VirtualEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-ambiente-virtual" class="md-nav__link">
+    Criação do Ambiente Virtual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacao-do-django" class="md-nav__link">
+    Instalação do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-projeto-django" class="md-nav__link">
+    Criação do Projeto Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executando-o-projeto" class="md-nav__link">
+    Executando o Projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-aplicativo" class="md-nav__link">
+    Criando um Aplicativo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-a-primeira-view-no-django" class="md-nav__link">
+    Criando a Primeira View no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-o-primeiro-template-no-django" class="md-nav__link">
+    Criando o Primeiro Template no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passando-parametros-para-o-template-do-django" class="md-nav__link">
+    Passando Parâmetros para o Template do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-nosso-primeiro-modelo" class="md-nav__link">
+    Criando nosso Primeiro Modelo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambiente-administrativo-do-django" class="md-nav__link">
+    Ambiente Administrativo do Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-usuario-no-django" class="md-nav__link">
+    Criando um Usuário no Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizando-o-modelo-de-dados" class="md-nav__link">
+    Visualizando o Modelo de Dados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fim-do-tutorial" class="md-nav__link">
+    Fim do Tutorial
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="aula-django-01-visao-geral-do-django">Aula Django 01 - Visão Geral do Django</h1>
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/Aula-Introdução-brightgreen.svg" alt="Aula Introdução">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Python-blue.svg" alt="Python">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Django-orange.svg" alt="Django">
+  </a>
+</p>
+
+<p>Este projeto mostra uma visão geral do framework Python Django. E foi baseado no conteúdo ensinado na aula de programação web utilizando como base a <a href="https://docs.djangoproject.com/en/4.2/">documentação do django</a> e também o <a href="https://www.w3schools.com/django/index.php">curso de django da w3schools</a>.</p>
+<h2 id="linguagens-utilizadas">Linguagens Utilizadas</h2>
+<ul>
+<li>Python - <a href="https://www.python.org/">link</a></li>
+<li>HTML - <a href="https://html.com/">link</a></li>
+</ul>
+<h2 id="framework-utilizados">Framework Utilizados</h2>
+<ul>
+<li>Django - <a href="https://www.djangoproject.com/">link</a></li>
+</ul>
+<h2 id="ferramentas-utilizadas">Ferramentas Utilizadas</h2>
+<ul>
+<li>Visual Studio Code - <a href="https://code.visualstudio.com/">link</a></li>
+<li>SQLite Online - <a href="https://sqliteonline.com/">link</a></li>
+<li>Pip - <a href="https://pypi.org/project/pip/">link</a></li>
+<li>VirtualEnv - <a href="https://virtualenv.pypa.io/">link</a></li>
+</ul>
+<h2 id="comandos-utilizados-na-criacao-deste-projeto">Comandos utilizados na criação deste projeto</h2>
+<h3 id="baixando-o-repositorio">Baixando o Repositório</h3>
+<p>Inicilamente, baixe o repositório do <a href="https://github.com/ufla-prog-web/aula-django-01">link</a> clicando em <code>Code</code> e <code>Download ZIP</code>.</p>
+<h3 id="instalacao-do-python">Instalação do Python</h3>
+<p>Se necessário, instale o Python (testado na versão 3.10.12) <a href="https://www.python.org/downloads/">link</a>.</p>
+<p>Verifique a versão instalada do Python (para ter certeza que tudo ocorreu bem):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>python3<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="instalacao-do-pip">Instalação do Pip</h3>
+<p>Se necessário, instale o pip (testado na versão 23.2.1):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
+</code></pre></div>
+<p>Verifique a versão instalada do pip (para ter certeza que tudo ocorreu bem):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>pip3<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="instalacao-do-virtualenv">Instalação do VirtualEnv</h3>
+<p>Se necessário, instale o virtualenv (testado na versão 20.24.1):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>virtualenv
+</code></pre></div>
+<p>Verifique a versão instalada do virtualenv (para ter certeza que tudo ocorreu bem):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>virtualenv<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="criacao-do-ambiente-virtual">Criação do Ambiente Virtual</h3>
+<p>Crie o ambiente virtual para isolar as instalações Python:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>virtualenv<span class="w"> </span>venv
+</code></pre></div>
+<p><strong>OBS:</strong> no comando acima o nome <code>venv</code> é o nome que escolhemos para o nosso ambiente virtual (isso pode ser alterado).</p>
+<p>Ativei o ambiente virtual para fazer as instalações de forma isolada:</p>
+<p><strong>Sistema Operacional:</strong> Unix/Mac OS:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div>
+<p><strong>Sistema Operacional:</strong> Windows</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
+</code></pre></div>
+<p>Quando desejar sair do ambiente virtual, basta digitar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>deactivate
+</code></pre></div>
+<h3 id="instalacao-do-django">Instalação do Django</h3>
+<p>Instale o django dentro do ambiente virtual criado (testado na versão 4.2.5):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>django
+</code></pre></div>
+<p>Verifique a versão instalada do django (para ter certeza que tudo ocorreu bem):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>django-admin<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="criacao-do-projeto-django">Criação do Projeto Django</h3>
+<p>Crie um projeto em django:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>django-admin<span class="w"> </span>startproject<span class="w"> </span>mysite<span class="w"> </span>.
+</code></pre></div>
+<p><strong>OBS:</strong> O ponto no comando acima informa ao Django para não criar uma pasta com nome <code>mysite</code> dentro de uma pasta <code>mysite</code>. Isso evita ter que ficar navegando entre pastas.</p>
+<h3 id="executando-o-projeto">Executando o Projeto</h3>
+<p>Inicie a execução do projeto django criado:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Acesse através do navegdor web a página <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>. Uma página padrão do django deve aparecer.</p>
+<h3 id="criando-um-aplicativo">Criando um Aplicativo</h3>
+<p>Execute o comando abaixo para criar um aplicativo chamado <code>myapp</code> dentro do projeto <code>mysite</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>myapp
+</code></pre></div>
+<p>O comando abaixo também faz a mesma coisa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>django-admin<span class="w"> </span>startapp<span class="w"> </span>myapp
+</code></pre></div>
+<h3 id="criando-a-primeira-view-no-django">Criando a Primeira View no Django</h3>
+<p>Edite o arquivo de <code>views.py</code> (na pasta <code>myapp</code>) e coloque o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">def</span> <span class="nf">teste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Olá Mundo!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Em seguida, crie um arquivo nomeado <code>urls.py</code> na mesma pasta do arquivo <code>views.py</code> e digite este código nele:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;teste/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">teste</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;teste&#39;</span><span class="p">),</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">]</span>
+</code></pre></div>
+<p>Existe um arquivo chamado <code>urls.py</code> na pasta <code>mysite</code>, abra esse arquivo e coloque o seguinte conteúdo nesse arquivo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;myapp.urls&#39;</span><span class="p">)),</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">]</span>
+</code></pre></div>
+<p>Em seguida, execute o projeto django (veja se está tudo funcionando):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>OBS: deve aparecer uma mensagem de erro (Page not found) na página <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
+<p>OBS: assim, acesse a URL: <a href="http://127.0.0.1:8000/teste/`">http://127.0.0.1:8000/teste/</a>.</p>
+<h3 id="criando-o-primeiro-template-no-django">Criando o Primeiro Template no Django</h3>
+<p>Crie uma pasta <code>templates</code> dentro da pasta <code>myapp</code> e crie um arquivo HTML chamado <code>paginateste.html</code>.</p>
+<p>Abra o arquivo HTML e insira o seguinte:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Olá Mundo!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Bem-vindo ao meu primeiro projeto Django!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Agora é necessário modificar a visualização. Abra o arquivo <code>views.py</code> e substitua o método de visualização <code>teste</code> por este:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="k">def</span> <span class="nf">teste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;paginateste.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+</code></pre></div>
+<p>Para poder trabalhar com coisas mais complicadas do que "Hello World!", temos que dizer ao Django que um novo aplicativo foi criado. Isso é feito no arquivo <code>settings.py</code> da pasta <code>mysite</code>. Procure a lista <code>INSTALLED_APPS[]</code> e adicione o aplicativo <code>myapp</code> que foi criado assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    <span class="s1">&#39;myapp&#39;</span><span class="p">,</span>  <span class="c1"># inclua o app criado aqui</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="p">]</span>
+</code></pre></div>
+<p>Em seguida, execute este comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<p>Em seguida, execute o projeto django (veja se está tudo funcionando):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Em seguida, acesse a URL <a href="http://127.0.0.1:8000/teste/`">http://127.0.0.1:8000/teste/</a>.</p>
+<h3 id="passando-parametros-para-o-template-do-django">Passando Parâmetros para o Template do Django</h3>
+<p>Agora, iremos ver como podemos passar alguns parâmetros do Python para o template HTML utilizando tags do Django (através da biblioteca Jinja).</p>
+<p>Em seguida, edite o arquivo <code>views.py</code> na pasta <code>biblioteca</code> e coloque o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="k">def</span> <span class="nf">teste</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;paginateste.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;José Silva&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>        <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jose.silva@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="s2">&quot;telefone&quot;</span><span class="p">:</span> <span class="s2">&quot;3333-1234&quot;</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>    <span class="p">}</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>
+</code></pre></div>
+<p>Em seguida, edite o arquivo HTML com nome <code>paginateste.html</code> na pasta <code>templates</code> com o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Django: Tags de Templates<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Neste exemplos utilizamos as tags de templates do Django (Jinja)<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Nome:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> {{ nome }} <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Idade:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> {{ idade }} <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>E-mail:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> {{ email }} <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Telefone:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> {{ telefone }} <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Em seguida, execute o projeto django:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Em seguida, acesse a URL <a href="http://127.0.0.1:8000/teste/`">http://127.0.0.1:8000/teste/</a>.</p>
+<h3 id="criando-nosso-primeiro-modelo">Criando nosso Primeiro Modelo</h3>
+<p>Até esse momento fizemos a nossa aplicação web com interface, com URLs e algum processamento, mas não trabalhamos com Banco de Dados. Os dados estavam inseridos diretamente no código.</p>
+<p>Iremos agora criar o nosso primeiro modelo um Livro no Banco de Dados SQLite disponível no Django. No Django, os dados são criados em objetos, chamados Modelos, e na verdade são tabelas em um banco de dados.</p>
+<p>Primeiramente, iremos criar uma classe chamada <code>Livro</code>. Para isso abra o arquivo <code>models.py</code> na pasta <code>myapp</code> e digite o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">class</span> <span class="nc">Livro</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    <span class="n">nome</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    <span class="n">ano</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+</code></pre></div>
+<p>O código acima irá criar uma Tabela chamada Livro no BD SQLite. Os campos <code>nome</code> e <code>autor</code> são campos de texto e estão configurados para ter no máximo 255 caracteres. O campo <code>ano</code> é um campo numérico inteiro.</p>
+<p>OBS: Quando criamos o projeto Django, obtivemos um banco de dados SQLite vazio. Ele estava na raiz da pasta aula-django-01 e possui o nome de arquivo db.sqlite3. Por padrão, todos os modelos criados no projeto Django serão criados como tabelas neste banco de dados.</p>
+<p>Em seguida, execute o código abaixo para que seja criado a tabela Livro no banco de dados de fato:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>makemigrations<span class="w"> </span>myapp
+</code></pre></div>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Migrations<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;myapp&#39;</span>:
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span>myapp/migrations/0001_initial.py
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>model<span class="w"> </span>Livro
+</code></pre></div>
+<p>O Django cria um arquivo descrevendo as alterações e armazena o arquivo na pasta <code>/myapp/migrations/</code> com nome <code>0001_initial.py</code>. Abra esse arquivo para analisar o conteúdo. Observe que o Django insere um campo <code>id</code> para suas tabelas, que é um número auto incrementado.</p>
+<p>A tabela ainda não foi criada, você terá que executar mais um comando, então o Django criará e executará uma instrução SQL, baseada no conteúdo do novo arquivo da pasta <code>/myapp/migrations/</code>.</p>
+<p>Execute o comando de migração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<p>O que resultará nesta saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Operations<span class="w"> </span>to<span class="w"> </span>perform:
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span>Apply<span class="w"> </span>all<span class="w"> </span>migrations:<span class="w"> </span>admin,<span class="w"> </span>auth,<span class="w"> </span>contenttypes,<span class="w"> </span>myapp,<span class="w"> </span>sessions
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Running<span class="w"> </span>migrations:
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">  </span>Applying<span class="w"> </span>myapp.0001_initial...<span class="w"> </span>OK
+</code></pre></div>
+<h3 id="ambiente-administrativo-do-django">Ambiente Administrativo do Django</h3>
+<p>O Django Admin é uma ferramenta ótima do Django, na verdade é uma interface de usuário CRUD (Criar, Ler, Atualizar, Excluir) para todos os seus modelos!</p>
+<p>Para entrar na interface do usuário administrativo, inicie o servidor com este comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Na janela do navegador, digite na barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a></p>
+<p>A razão pela qual esta URL vai para a página de login do administrador do Django pode ser encontrada no arquivo <code>urls.py</code> do seu projeto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;myapp.urls&#39;</span><span class="p">)),</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="p">]</span>
+</code></pre></div>
+<p>A lista <code>urlpatterns[]</code> recebe solicitações na rota <code>admin/</code> e as envia para <code>admin.site.urls</code>, que faz parte de um aplicativo integrado que vem com o Django e contém muitas funcionalidades e interfaces de usuário, sendo uma delas a interface de usuário de login.</p>
+<h3 id="criando-um-usuario-no-django">Criando um Usuário no Django</h3>
+<p>Para poder fazer login no ambiente administrativo do Django, precisamos criar um usuário. Isso é feito digitando este comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</code></pre></div>
+<p>O que dará um prompt como esse:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Username:<span class="w"> </span>admin
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Email<span class="w"> </span>address:<span class="w"> </span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>Password:<span class="w"> </span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>Password<span class="w"> </span><span class="o">(</span>again<span class="o">)</span>:<span class="w"> </span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>The<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>too<span class="w"> </span>similar<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>username.
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>This<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>too<span class="w"> </span>short.<span class="w"> </span>It<span class="w"> </span>must<span class="w"> </span>contain<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">8</span><span class="w"> </span>characters.
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>This<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>too<span class="w"> </span>common.
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>Bypass<span class="w"> </span>password<span class="w"> </span>validation<span class="w"> </span>and<span class="w"> </span>create<span class="w"> </span>user<span class="w"> </span>anyway?<span class="w"> </span><span class="o">[</span>y/N<span class="o">]</span>:<span class="w"> </span>y
+</code></pre></div>
+<p><strong>OBS:</strong> Aqui você deve inserir: nome de usuário, endereço de e-mail (você pode simplesmente deixar em branco ou escolher um endereço de e-mail falso) e senha. Em meu caso coloquei usuário <code>admin</code> email em branco e senha <code>admin</code>.</p>
+<p>Minha senha não atendeu aos critérios, mas este é um ambiente de teste, e opto por criar usuário mesmo assim, digitando <code>y</code> gerando assim a saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Superuser<span class="w"> </span>created<span class="w"> </span>successfully.
+</code></pre></div>
+<p>Agora reinicie o servidor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>...<span class="w"> </span>$<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>Na janela do navegador, digite na barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a></p>
+<p>Preencha o formulário com o nome de usuário e senha corretos (<code>admin</code> e <code>admin</code>):</p>
+<p>Na tela aberta você pode criar, ler, atualizar e excluir grupos e usuários, mas onde está o modelo de Livro?</p>
+<p>O modelo Livro está faltando, como deveria estar. Você tem que informar ao Django quais modelos devem estar visíveis na interface administrativa.</p>
+<p>Para incluir o modelo Livro na interface administrativa, temos que dizer ao Django que este modelo deve estar visível na interface administrativa.</p>
+<p>Isso é feito em um arquivo chamado <code>admin.py</code>, e está localizado na pasta do seu aplicativo, que no nosso caso é a pasta <code>myapp</code>.</p>
+<p>Abra-o, o mesmo deve estar assim:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="c1"># Register your models here.</span>
+</code></pre></div>
+<p>Insira algumas linhas aqui para tornar o modelo Livro visível na página de administração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Livro</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Livro</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora volte para o navegador e atualize a barra de endereço <a href="127.0.0.1:8000/admin/">127.0.0.1:8000/admin/</a></p>
+<p>Clique em Livros faça a inserção de alguns livros no modelo criado.</p>
+<h3 id="visualizando-o-modelo-de-dados">Visualizando o Modelo de Dados</h3>
+<p>Existem diversas ferramentas que podem ser utilizadas para ver o banco de dados do modelo criado. Uma dessas ferramentas é o <a href="https://sqliteonline.com/">site SQLite Online</a>. Acesse esse site e carregue o banco de dados chamado <code>db.sqlite3</code> localizado na raiz do projeto.</p>
+<p>Execute o comando abaixo nessa ferramenta para listar os livros que você cadastrou utilizando o ambiente administrativo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">myapp_livro</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="fim-do-tutorial">Fim do Tutorial</h3>
+<p>Chegamos ao final deste tutorial. É importante entender o que faz cada um dos comandos acima explicados. Caso tenha dúvidas acesse o site da documentação do Django e também o curso de Django da w3schools nos links abaixo.</p>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/4.2/">Documentação Django</a></li>
+<li><a href="https://www.w3schools.com/django/index.php">Curso Django w3schools</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - GAC116 - Programação Web - UFLA.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
